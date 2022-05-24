@@ -36,6 +36,7 @@ pipeline {
             steps {
                 sh 'npm install netlify-cli'
                 sh 'npx netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir build/ --prod'
+                echo "Running ${env.BUILD_ID}"
             }
         }
     }
