@@ -7,7 +7,7 @@ pipeline {
         CI = 'true'
     }
 
-    stages{
+    stages {
 
         stage('check') {
             steps {
