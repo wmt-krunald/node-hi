@@ -7,6 +7,8 @@ pipeline {
         CI = 'true'
     }
 
+    parameters{choice(choices:'master\nmain\ndev', description: 'Select  Branch', name: 'branch')}
+
     stages{
 
         stage('check') {
