@@ -41,12 +41,12 @@ pipeline {
         stage('deploy') {
             environment {
                 NETLIFY_AUTH_TOKEN = credentials('NETLIFY_AUTH_TOKEN')
-                NETLIFY_SITE_ID = credentials('NETLIFY_SITE_ID')
+                NETLIFY_SITE_ID = credentials('NETLIFYSITE_ID')
             }
             
             steps {
                 sh 'npm install netlify-cli'
-                sh 'npx netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir build/ --prod'
+                sh 'npx netlify deploy --site $NETLIFYSITE_ID --auth $NETLIFY_AUTH_TOKEN --dir build/ --prod'
                 echo 'this is master branch'
             }
         }
