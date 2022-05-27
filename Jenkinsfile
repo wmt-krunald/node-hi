@@ -28,11 +28,11 @@ pipeline {
         //     }
         // } "test": "npm run test",
 
-        stage('start') {
-            steps {
-                sh 'npm run start'
-            }
-        }
+        // stage('start') {
+        //     steps {
+        //         sh 'npm run start'
+        //     }
+        // }
         stage('deploy') {
             environment {
                 NETLIFY_AUTH_TOKEN = credentials('NETLIFY_AUTH_TOKEN')
