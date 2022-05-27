@@ -8,7 +8,7 @@ pipeline {
     }
 
     parameters{choice(choices:'master\nmain\ndev', description: 'Select  Branch', name: 'branch')}
-
+    parameters{choice(choices: ['chrome\nfirefox'], description: 'Select Browser', name: 'browser'), choice(choices: ['https://snapshott.netlify.app\nhttps://qa.snapshott.netlify.app\nhttps://qa1.snapshott.netlify.app'], description: 'Select URL.', name: 'url')}
     stages {
 
         stage('check') {
