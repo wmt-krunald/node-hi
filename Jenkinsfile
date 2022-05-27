@@ -22,6 +22,12 @@ pipeline {
             }
         }
 
+        stage('test') {
+            steps {
+                sh 'npm run test'
+            }
+        }
+
         // stage('start') {
         //     steps {
         //         sh 'npm run start'
