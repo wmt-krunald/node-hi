@@ -1,6 +1,6 @@
 pipeline {
     agent any
- 
+    
     tools {nodejs "node"}
 
     environment {
@@ -20,14 +20,19 @@ pipeline {
         stage('build') {
             steps {
                 sh 'npm i'
-                sh 'npm run build'
             }
         }
+
+        // stage('test') {
+        //     steps {
+        //         sh 'npm run test'
+        //     }
+        // } "test": "npm run test",
 
         // stage('start') {
         //     steps {
         //         sh 'npm run start'
-        //     }
+        //     } "start": "npm run start",
         // }
         stage('deploy') {
             environment {
