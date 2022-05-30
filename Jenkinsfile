@@ -11,6 +11,13 @@ pipeline {
 
     stages{
 
+        stage('branch-check') {
+            steps {
+                sh 'git branch'
+                sh 'git checkout $branch'
+            }
+        }
+
         stage('check') {
             steps {
                 sh 'npm config ls'
