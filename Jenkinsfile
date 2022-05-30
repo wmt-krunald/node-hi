@@ -30,7 +30,7 @@ pipeline {
             }
         }
 
-        // stage('test') {
+        // stage('test') {  {uper vala build nu 6: "build": "npm run build",}
         //     steps {
         //         sh 'npm run test'
         //     }
