@@ -7,13 +7,9 @@ pipeline {
         CI = 'true'
     }
 
-    parameters{
-        choice(choices:'master\nmain\ndev', description: 'Select  Branch', name: 'branch')
-    //     choice(choices:'chrome\nfirefox', description: 'Select Browser', name: 'browser')
-    //     choice(choices:'https://snapshott.netlify.app\nhttps://qa.snapshott.netlify.app\nhttps://qa1.snapshott.netlify.app', description: 'Select URL.', name: 'url')
-    }
+    parameters{choice(choices:'master\nmain\ndev', description: 'Select  Branch', name: 'branch')}
 
-    stages {
+    stages{
 
         stage('check') {
             steps {
@@ -47,7 +43,7 @@ pipeline {
             steps {
                 sh 'npm install netlify-cli'
                 sh 'npx netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir build/ --prod'
-                echo 'this is master branch'
+                echo 'this is dev branch'
             }
         }
     }
