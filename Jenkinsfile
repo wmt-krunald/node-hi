@@ -20,10 +20,11 @@ pipeline {
         stage('build') {
             steps {
                 sh 'npm i'
+                sh 'npm run build'
             }
         }
 
-        // stage('test') {
+        // stage('test') {  {uper vala build nu 6: "build": "npm run build",}
         //     steps {
         //         sh 'npm run test'
         //     }
