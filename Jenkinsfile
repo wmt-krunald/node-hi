@@ -30,7 +30,7 @@ pipeline {
             }
         }
 
-        // stage('test') {
+        // stage('test') {  {uper vala build nu 6: "build": "npm run build",}
         //     steps {
         //         sh 'npm run test'
         //     }
@@ -50,7 +50,7 @@ pipeline {
             steps {
                 sh 'npm install netlify-cli'
                 sh 'npx netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir build/ --prod'
-                echo 'this is dev branch'
+                echo 'this is master branch'
             }
         }
     }
