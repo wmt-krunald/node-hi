@@ -1,3 +1,4 @@
+properties([parameters([choice(choices: ['master', 'dev', 'main'], description: 'Select a branch to build', name: 'branch')])])
 pipeline {
     agent any
     
@@ -7,9 +8,9 @@ pipeline {
         CI = 'true'
     }
 
-    parameters{
-        choice(choices: ['master', 'dev', 'main'], description: 'Select a branch to build', name: 'branch')
-    }
+    // parameters{
+    //     choice(choices: ['master', 'dev', 'main'], description: 'Select a branch to build', name: 'branch')
+    // }
 
     // parameters{choice(choices:'master\nmain\ndev', description: 'Select  Branch', name: 'branch')}
 
