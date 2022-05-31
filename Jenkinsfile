@@ -53,7 +53,6 @@ pipeline {
             environment {
                 NETLIFY_AUTH_TOKEN = credentials('NETLIFY_AUTH_TOKEN')
                 NETLIFY_SITE_ID = credentials('NETLIFY_SITE_ID')
-                echo "branch is ${params.branch}"
             }
             
             steps {
