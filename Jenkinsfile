@@ -17,24 +17,24 @@ pipeline {
 
     stages{
 
-        stage('checkout'){
-            steps{
-                echo "branch is ${params.branch}"
-                git url: "https://github.com/wmt-krunald/node-hi.git", branch: "${params.branch}"
-            }
-        }
+        // stage('checkout'){
+        //     steps{
+        //         echo "branch is ${params.branch}"
+        //         git url: "https://github.com/wmt-krunald/node-hi.git", branch: "${params.branch}"
+        //     }
+        // }
 
         stage('check') {
             steps {
                 sh 'npm config ls'
-                echo "branch is ${params.branch}"
+                // echo "branch is ${params.branch}"
             }
         }
 
         stage('build') {
             steps {
                 sh 'npm i'
-                echo "branch is ${params.branch}"
+                // echo "branch is ${params.branch}"
                 sh 'npm run build'
             }
         }
@@ -60,7 +60,7 @@ pipeline {
                 sh 'npm install netlify-cli'
                 sh 'npx netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir build/ --prod'
                 echo 'this is master branch'
-                echo "branch is ${params.branch}"
+                // echo "branch is ${params.branch}"
             }
         }
     }
