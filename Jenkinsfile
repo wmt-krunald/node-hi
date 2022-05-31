@@ -27,12 +27,14 @@ pipeline {
         stage('check') {
             steps {
                 sh 'npm config ls'
+                echo "branch is ${params.branch}"
             }
         }
 
         stage('build') {
             steps {
                 sh 'npm i'
+                echo "branch is ${params.branch}"
             }
         }
 
@@ -51,12 +53,14 @@ pipeline {
             environment {
                 NETLIFY_AUTH_TOKEN = credentials('NETLIFY_AUTH_TOKEN')
                 NETLIFY_SITE_ID = credentials('NETLIFY_SITE_ID')
+                echo "branch is ${params.branch}"
             }
             
             steps {
                 sh 'npm install netlify-cli'
                 sh 'npx netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir build/ --prod'
                 echo 'this is master branch'
+                echo "branch is ${params.branch}"
             }
         }
     }
