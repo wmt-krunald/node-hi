@@ -17,12 +17,12 @@ pipeline {
 
     stages{
 
-        stage('checkout'){
-            steps{
-                echo "branch is ${params.branch}"
-                git url: "https://github.com/wmt-krunald/node-hi.git", branch: "${params.branch}"
-            }
-        }
+        // stage('checkout'){
+        //     steps{
+        //         echo "branch is ${params.branch}"
+        //         git url: "https://github.com/wmt-krunald/node-hi.git", branch: "${params.branch}"
+        //     }
+        // }
 
         stage('check') {
             steps {
@@ -33,6 +33,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'npm i'
+                sh 'npm run build'
             }
         }
 
