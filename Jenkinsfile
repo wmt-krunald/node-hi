@@ -35,6 +35,7 @@ pipeline {
             steps {
                 sh 'npm i'
                 echo "branch is ${params.branch}"
+                sh 'npm run build'
             }
         }
 
