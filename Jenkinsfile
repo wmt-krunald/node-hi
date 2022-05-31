@@ -7,14 +7,16 @@ pipeline {
         CI = 'true'
     }
 
-    properties([parameters([choice(choices: ['master', 'dev', 'main'], description: 'Select a branch to build', name: 'branch')])])
+    options([parameters([choice(choices: ['master', 'dev', 'main'], description: 'Select a branch to build', name: 'branch')])])
     // parameters{choice(choices:'master\nmain\ndev', description: 'Select  Branch', name: 'branch')}
 
     stages{
 
         stage('checkout'){
-            echo "branch is ${params.branch}"
-            git url: "https://github.com/wmt-krunald/node-hi.git", branch: "${params.branch}"
+            steps{
+                echo "branch is ${params.branch}"
+                git url: "https://github.com/wmt-krunald/node-hi.git", branch: "${params.branch}"
+            }
         }
 
         stage('check') {
