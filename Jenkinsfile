@@ -7,7 +7,11 @@ pipeline {
         CI = 'true'
     }
 
-    options{parameters{choice(choices: ['master', 'dev', 'main'], description: 'Select a branch to build', name: 'branch')}}
+    options{
+        parameters{
+            choice(choices: ['master', 'dev', 'main'], description: 'Select a branch to build', name: 'branch')
+        }
+    }
     // parameters{choice(choices:'master\nmain\ndev', description: 'Select  Branch', name: 'branch')}
 
     stages{
